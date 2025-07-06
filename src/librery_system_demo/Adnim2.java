@@ -42,7 +42,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class Adnim2 extends JFrame {
-
+//hello dhiraj
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtrollno;
