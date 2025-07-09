@@ -40,6 +40,9 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javax.swing.JFormattedTextField;
+import java.awt.Choice;
+import javax.swing.JSlider;
 
 public class Adnim2 extends JFrame {
 //hello dhiraj
@@ -66,6 +69,11 @@ public class Adnim2 extends JFrame {
 	private JTextField txtid;
 	private JTable table_1;
 	private JTable table;
+	private JTextField txtBookID;
+	private JTextField txtUserId;
+	private JTextField txtIssueDate;
+	private JTextField txtDueDate;
+	private JTextField txtreturndate;
 
 	/**
 	 * Launch the application.
@@ -101,23 +109,23 @@ public class Adnim2 extends JFrame {
 		tabbedPane.setBounds(10, 83, 1281, 641);
 		contentPane.add(tabbedPane);
 		
-		JPanel panel = new JPanel();
-		panel.addMouseListener(new MouseAdapter() {
+		JPanel panelBoook = new JPanel();
+		panelBoook.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				loadBooksFromDB();
 			}
 		});
-		panel.setForeground(Color.WHITE);
-		panel.setBackground(SystemColor.activeCaption);
-		tabbedPane.addTab("Books", null, panel, null);
-		panel.setLayout(null);
+		panelBoook.setForeground(Color.WHITE);
+		panelBoook.setBackground(SystemColor.activeCaption);
+		tabbedPane.addTab("Books", null, panelBoook, null);
+		panelBoook.setLayout(null);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setBounds(637, 5, 1, 1);
 		panel_1_1.setLayout(null);
 		panel_1_1.setBackground(Color.WHITE);
-		panel.add(panel_1_1);
+		panelBoook.add(panel_1_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Roll No");
 		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -198,57 +206,57 @@ public class Adnim2 extends JFrame {
 		txtauthor = new JTextField();
 		txtauthor.setColumns(10);
 		txtauthor.setBounds(113, 114, 198, 37);
-		panel.add(txtauthor);
+		panelBoook.add(txtauthor);
 		
 		txtganre = new JTextField();
 		txtganre.setColumns(10);
 		txtganre.setBounds(113, 297, 198, 34);
-		panel.add(txtganre);
+		panelBoook.add(txtganre);
 		
 		txtlang = new JTextField();
 		txtlang.setColumns(10);
 		txtlang.setBounds(113, 252, 198, 34);
-		panel.add(txtlang);
+		panelBoook.add(txtlang);
 		
 		txtyear = new JTextField();
 		txtyear.setColumns(10);
 		txtyear.setBounds(113, 207, 198, 34);
-		panel.add(txtyear);
+		panelBoook.add(txtyear);
 		
 		txtpulisher = new JTextField();
 		txtpulisher.setColumns(10);
 		txtpulisher.setBounds(113, 162, 198, 34);
-		panel.add(txtpulisher);
+		panelBoook.add(txtpulisher);
 		
 		JLabel lblNewLabel_1_1_2_2 = new JLabel("Ganre");
 		lblNewLabel_1_1_2_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_2_2.setBounds(20, 296, 89, 34);
-		panel.add(lblNewLabel_1_1_2_2);
+		panelBoook.add(lblNewLabel_1_1_2_2);
 		
 		JLabel lblNewLabel_1_1_4 = new JLabel("Language");
 		lblNewLabel_1_1_4.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_4.setBounds(20, 251, 108, 34);
-		panel.add(lblNewLabel_1_1_4);
+		panelBoook.add(lblNewLabel_1_1_4);
 		
 		JLabel lblName_1_2 = new JLabel("Year");
 		lblName_1_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblName_1_2.setBounds(20, 206, 89, 34);
-		panel.add(lblName_1_2);
+		panelBoook.add(lblName_1_2);
 		
 		JLabel lblName_3 = new JLabel("Publisher");
 		lblName_3.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblName_3.setBounds(20, 161, 108, 34);
-		panel.add(lblName_3);
+		panelBoook.add(lblName_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("Author");
 		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(20, 114, 125, 34);
-		panel.add(lblNewLabel_2);
+		panelBoook.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1_1_1_2 = new JLabel("Titale");
 		lblNewLabel_1_1_1_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_1_2.setBounds(20, 66, 125, 34);
-		panel.add(lblNewLabel_1_1_1_2);
+		panelBoook.add(lblNewLabel_1_1_1_2);
 		
 		JButton btnNewButton_2 = new JButton("Add");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -287,7 +295,7 @@ public class Adnim2 extends JFrame {
 			}
 		});
 		btnNewButton_2.setBounds(10, 392, 301, 43);
-		panel.add(btnNewButton_2);
+		panelBoook.add(btnNewButton_2);
 		
 		JButton btnUpdate_2 = new JButton("Update");
 		btnUpdate_2.addActionListener(new ActionListener() {
@@ -346,7 +354,7 @@ public class Adnim2 extends JFrame {
 			}
 		});
 		btnUpdate_2.setBounds(10, 446, 301, 43);
-		panel.add(btnUpdate_2);
+		panelBoook.add(btnUpdate_2);
 		
 		JButton btnDelete_2 = new JButton("Delete");
 		btnDelete_2.addActionListener(new ActionListener() {
@@ -389,36 +397,36 @@ public class Adnim2 extends JFrame {
 			    }
 			});
 		btnDelete_2.setBounds(10, 500, 301, 43);
-		panel.add(btnDelete_2);
+		panelBoook.add(btnDelete_2);
 		
 		txttitale = new JTextField();
 		txttitale.setColumns(10);
 		txttitale.setBounds(113, 65, 198, 37);
-		panel.add(txttitale);
+		panelBoook.add(txttitale);
 		
 		txtquantity = new JTextField();
 		txtquantity.setColumns(10);
 		txtquantity.setBounds(113, 347, 198, 34);
-		panel.add(txtquantity);
+		panelBoook.add(txtquantity);
 		
 		JLabel lblNewLabel_1_1_2_2_1 = new JLabel("Quantity");
 		lblNewLabel_1_1_2_2_1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_2_2_1.setBounds(20, 347, 89, 34);
-		panel.add(lblNewLabel_1_1_2_2_1);
+		panelBoook.add(lblNewLabel_1_1_2_2_1);
 		
 		txtid = new JTextField();
 		txtid.setColumns(10);
 		txtid.setBounds(113, 18, 108, 37);
-		panel.add(txtid);
+		panelBoook.add(txtid);
 		
 		JLabel lblNewLabel_1_1_1_2_1 = new JLabel("id");
 		lblNewLabel_1_1_1_2_1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_1_2_1.setBounds(20, 19, 125, 34);
-		panel.add(lblNewLabel_1_1_1_2_1);
+		panelBoook.add(lblNewLabel_1_1_1_2_1);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(351, 29, 893, 540);
-		panel.add(scrollPane_1);
+		panelBoook.add(scrollPane_1);
 		
 		table_1 = new JTable();
 		table_1.setModel(new DefaultTableModel(
@@ -430,39 +438,128 @@ public class Adnim2 extends JFrame {
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
-	
+		
+		JPanel transaction = new JPanel();
+		tabbedPane.addTab("Trasaction", null, transaction, null);
+		transaction.setLayout(null);
+		
+		txtBookID = new JTextField();
+		txtBookID.setBounds(97, 28, 96, 20);
+		transaction.add(txtBookID);
+		txtBookID.setColumns(10);
+		
+		txtUserId = new JTextField();
+		txtUserId.setColumns(10);
+		txtUserId.setBounds(97, 68, 96, 20);
+		transaction.add(txtUserId);
+		
+		txtIssueDate = new JTextField();
+		txtIssueDate.setColumns(10);
+		txtIssueDate.setBounds(97, 111, 96, 20);
+		transaction.add(txtIssueDate);
+		
+		JLabel lblUserid = new JLabel("UserId");
+		lblUserid.setBounds(22, 31, 49, 14);
+		transaction.add(lblUserid);
+		
+		JLabel lblBookid = new JLabel("BookID");
+		lblBookid.setBounds(22, 71, 49, 14);
+		transaction.add(lblBookid);
+		
+		JLabel lblIssueDate = new JLabel("Issue Date");
+		lblIssueDate.setBounds(22, 114, 79, 14);
+		transaction.add(lblIssueDate);
+		
+		JLabel lblDueDate = new JLabel("Due Date");
+		lblDueDate.setBounds(22, 163, 79, 14);
+		transaction.add(lblDueDate);
+		
+		txtDueDate = new JTextField();
+		txtDueDate.setColumns(10);
+		txtDueDate.setBounds(97, 160, 96, 20);
+		transaction.add(txtDueDate);
+		
+		JButton btnNewButton_3 = new JButton("New button");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		tabbedPane.addTab("Student", null, panel_1, null);
-		panel_1.setLayout(null);
+try {
+					String url = "jdbc:mysql://localhost:3306/librariy manegemnet system";
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					
+				
+					Connection Con = DriverManager.getConnection(url ,"root","root");
+					PreparedStatement st = Con.prepareStatement("Insert into transactions(book_id,UserID,due_date,IsuuDate,return_date) values(?,?,?,?,?)");
+							
+					st.setString(1, txtBookID.getText());
+					st.setString(2, txtUserId.getText());
+					st.setString(3, txtDueDate.getText());
+					st.setString(4, txtIssueDate.getText());
+					st.setString(5, txtreturndate.getText());
+						
+					st.executeUpdate();
+					JOptionPane.showMessageDialog(null,"Succesfully inserted Data In database");
+					Con.close();	
+					loadStudentFromDB();   	
+				
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException | HeadlessException ex  ) {
+					JOptionPane.showMessageDialog(null,ex);
+					// TODO Auto-generated catch block
+					ex.printStackTrace();
+				}
+				
+			
+				
+				
+			}
+		});
+		btnNewButton_3.setBounds(66, 271, 89, 23);
+		transaction.add(btnNewButton_3);
+		
+		txtreturndate = new JTextField();
+		txtreturndate.setColumns(10);
+		txtreturndate.setBounds(97, 209, 96, 20);
+		transaction.add(txtreturndate);
+		
+		JLabel lblReturnDate = new JLabel("return date");
+		lblReturnDate.setBounds(22, 212, 79, 14);
+		transaction.add(lblReturnDate);
+		
+
+		JPanel student = new JPanel();
+		student.setBackground(Color.WHITE);
+		tabbedPane.addTab("Student", null, student, null);
+		student.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Roll No");
 		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel.setBounds(34, 70, 125, 34);
-		panel_1.add(lblNewLabel);
+		student.add(lblNewLabel);
 		
 		JLabel lblName = new JLabel("FristName");
 		lblName.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblName.setBounds(34, 120, 89, 34);
-		panel_1.add(lblName);
+		student.add(lblName);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Email");
 		lblNewLabel_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1.setBounds(34, 215, 66, 34);
-		panel_1.add(lblNewLabel_1_1);
+		student.add(lblNewLabel_1_1);
 		
 		txtrollno = new JTextField();
 		txtrollno.setBounds(160, 86, 198, 34);
-		panel_1.add(txtrollno);
+		student.add(txtrollno);
 		txtrollno.setColumns(10);
 		JLabel imglbl = new JLabel("New label");
 		imglbl.setBounds(169, 11, 80, 64);
-		panel_1.add(imglbl);
+		student.add(imglbl);
 		txtfname = new JTextField();
 		txtfname.setColumns(10);
 		txtfname.setBounds(160, 131, 198, 34);
-		panel_1.add(txtfname);
+		student.add(txtfname);
 		 JFileChooser fileChooser = new JFileChooser();
 	        FileNameExtensionFilter filter = new FileNameExtensionFilter(
 	                "Image Files", "jpg", "jpeg", "png", "gif");
@@ -486,13 +583,13 @@ public class Adnim2 extends JFrame {
 		            }}
 		});
 		btnNewButton.setBounds(34, 32, 89, 23);
-		panel_1.add(btnNewButton);
+		student.add(btnNewButton);
 		
 		
 		txtemail = new JTextField();
 		txtemail.setColumns(10);
 		txtemail.setBounds(160, 217, 198, 34);
-		panel_1.add(txtemail);
+		student.add(txtemail);
 		  
 	        
 		JButton btnadd = new JButton("Add");
@@ -536,27 +633,27 @@ public class Adnim2 extends JFrame {
 			}
 		});
 		btnadd.setBounds(10, 326, 348, 43);
-		panel_1.add(btnadd);
+		student.add(btnadd);
 		
 		txtlname = new JTextField();
 		txtlname.setColumns(10);
 		txtlname.setBounds(160, 172, 198, 34);
-		panel_1.add(txtlname);
+		student.add(txtlname);
 		
 		JLabel lblName_1 = new JLabel("LastName");
 		lblName_1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblName_1.setBounds(34, 167, 89, 34);
-		panel_1.add(lblName_1);
+		student.add(lblName_1);
 		
 		txtaddress = new JTextField();
 		txtaddress.setColumns(10);
 		txtaddress.setBounds(160, 265, 198, 34);
-		panel_1.add(txtaddress);
+		student.add(txtaddress);
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("Address");
 		lblNewLabel_1_1_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1_1_2.setBounds(34, 265, 89, 34);
-		panel_1.add(lblNewLabel_1_1_2);
+		student.add(lblNewLabel_1_1_2);
 		
 		JButton btnupdate = new JButton("Update");
 		btnupdate.addActionListener(new ActionListener() {
@@ -590,7 +687,7 @@ public class Adnim2 extends JFrame {
 			}
 		});
 		btnupdate.setBounds(10, 377, 348, 43);
-		panel_1.add(btnupdate);
+		student.add(btnupdate);
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
@@ -653,11 +750,11 @@ public class Adnim2 extends JFrame {
 		loadBooksFromDB();
 	
 		btnDelete.setBounds(10, 431, 348, 43);
-		panel_1.add(btnDelete);
+		student.add(btnDelete);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(416, 11, 834, 463);
-		panel_1.add(scrollPane);
+		student.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
